@@ -35,5 +35,11 @@
   "description": "React based application to explore the works of the Museum of Contemporary Photography",
   "main": "index.js",
   "repository": "https://github.com/mocp-me/mocp_me",
-  "license": "MIT"
+  "license": "MIT",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
