@@ -6,25 +6,6 @@ const gcs = storage({
   projectId: "cool-citadel-192004",
   keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS
 });
-console.log(
-  "-----------------------------------------------------------------"
-);
-console.log(
-  "-----------------------------------------------------------------"
-);
-console.log(
-  "-----------------------------------------------------------------"
-);
-console.log(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-console.log(
-  "-----------------------------------------------------------------"
-);
-console.log(
-  "-----------------------------------------------------------------"
-);
-console.log(
-  "-----------------------------------------------------------------"
-);
 
 const bucketName = "user_uploaded_images";
 const bucket = gcs.bucket(bucketName);
