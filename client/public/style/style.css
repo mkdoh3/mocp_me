@@ -737,7 +737,6 @@ th {
   width: 200px;
 }
 .landingWrapper .navPanel_1 .button:after {
-  content: "add image";
   transition: linear .2s !important;
 }
 .landingWrapper .navPanel_2 {
@@ -938,7 +937,6 @@ th {
     border-width: 3px !important;
   }
   .landingWrapper .navPanel_1 .button:after {
-    content: "add image";
     transition: linear .2s !important;
   }
   .landingWrapper .navPanel_1 .button:hover:after {

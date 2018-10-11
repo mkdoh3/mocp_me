@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import { Grid, Row, Col, Container } from 'react-grid-system';
+import { Row, Col } from 'react-grid-system';
 import axios from 'axios';
 import _ from 'lodash';
-import ClassNames from 'classnames';
 
-import Logo from '../../components/logo/logo';
 import Info from '../../components/returned_info/returned_info';
 import Tags from '../../components/tag_list/tag_list';
 import TagSubmit from '../../components/tag_submit/tag_submit';
@@ -14,16 +12,11 @@ import NavBtn from '../../components/nav_button';
 import logo from './../../components/logo/logo.png';
 
 class VisionResultsDesktop extends Component {
-    constructor(props) {
-        super(props);
 
-        this.handleTagSubmit = this.handleTagSubmit.bind(this);
-
-        this.state = { 
+        state = { 
             uploadedImg : JSON.parse(sessionStorage.getItem('uploadedImg')),
             searchFail: false
          };
-    }
 
     componentWillMount(){
         if(!this.state.uploadedImg) {
@@ -52,7 +45,7 @@ class VisionResultsDesktop extends Component {
         sessionStorage.setItem('prevState', JSON.stringify(this.state));
       }
 
-    handleTagSubmit(event) {
+    handleTagSubmit = (event) => {
         event.preventDefault();
         const tag = event.target.elements.term.value;
 
@@ -69,7 +62,7 @@ class VisionResultsDesktop extends Component {
         
     }
 
-    fetchImage() {
+    fetchImage = () => {
         let fileName = this.state.uploadedImg;
         fileName = fileName.split('/');
         fileName = fileName[fileName.length-1];

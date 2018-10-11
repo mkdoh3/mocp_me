@@ -4,26 +4,20 @@ import Dropzone from "react-dropzone";
 import Waypoint from "react-waypoint";
 import { Row, Col } from "react-grid-system";
 import axios from "axios";
-import autoBind from "auto-bind";
 
 import Logo from "../../components/logo/logo";
 import Phone from "../../components/phone/phone";
 import NavPanel from "../../components/nav_panel/nav_panel";
 
 class Landing extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    dropzoneActive: false,
+    fileRejected: false,
+    animationTriggerOne: false,
+    animationTriggerTwo: false,
+    animationTriggerThree: false
+  };
 
-    autoBind(this);
-
-    this.state = {
-      dropzoneActive: false,
-      fileRejected: false,
-      animationTriggerOne: false,
-      animationTriggerTwo: false,
-      animationTriggerThree: false
-    };
-  }
   componentDidMount() {
     window.addEventListener("resize", this.handleWindowResize);
   }
@@ -33,23 +27,23 @@ class Landing extends Component {
   }
 
   //reset animations when user changes browser window size, especially useful when switching between the media breakpoint
-  handleWindowResize() {
+  handleWindowResize = () => {
     this.setState({
       animationTriggerOne: false,
       animationTriggerTwo: false,
       animationTriggerThree: false
     });
-  }
+  };
 
-  onDragEnter() {
+  onDragEnter = () => {
     this.setState({ dropzoneActive: true });
-  }
+  };
 
-  onDragLeave() {
+  onDragLeave = () => {
     this.setState({ dropzoneActive: false });
-  }
+  };
 
-  handleOnDrop(accepted, rejected) {
+  handleOnDrop = (accepted, rejected) => {
     if (rejected.length > 0) {
       console.log(rejected);
       this.setState({ fileRejected: true });
@@ -74,13 +68,13 @@ class Landing extends Component {
         this.props.history.push("/vision_search");
       })
       .catch(err => console.log(err));
-  }
+  };
 
-  handleAnimationTrigger(trigger) {
+  handleAnimationTrigger = trigger => {
     if (window.innerWidth < 576 && !this.state[trigger]) {
       this.setState({ [trigger]: true });
     }
-  }
+  };
 
   render() {
     const { dropzoneActive } = this.state;
